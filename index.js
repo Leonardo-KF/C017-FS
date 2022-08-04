@@ -7,8 +7,20 @@ app.use(cors());
 
 let animes = require("./mocks/animes");
 
+const Char = require("./entities/character.entity");
+// KISS -> Keep it Simple and Stupid
+
 app.get("/", function (req, res) {
-  console.log(req.headers);
+  const char1 = new Char({
+    name: "leonardo",
+    lastName: "do test",
+    skill: "destruição",
+    age: "900",
+    gender: "male",
+  });
+  char1.validate();
+  console.log(char1.getCharacter());
+
   res.send(animes);
 });
 

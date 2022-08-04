@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="rdZ__2JckaXxYIee4m1p" name="Página-1">
-        <mxGraphModel dx="987" dy="412" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="917" dy="991" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -67,26 +67,26 @@
                 <mxCell id="21" value="Server 2" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;strokeColor=#CC0000;" parent="1" vertex="1">
                     <mxGeometry x="270" y="1020" width="220" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="Middleware" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;strokeColor=#FFFF33;" vertex="1" parent="1">
+                <mxCell id="25" value="Middleware" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;strokeColor=#FFFF33;" parent="1" vertex="1">
                     <mxGeometry x="250" y="950" width="240" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" value="RES" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="27" target="28">
+                <mxCell id="30" value="RES" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="27" target="28" edge="1">
                     <mxGeometry x="0.2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" value="Server" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;strokeColor=#CC0000;" vertex="1" parent="1">
+                <mxCell id="27" value="Server" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;strokeColor=#CC0000;" parent="1" vertex="1">
                     <mxGeometry x="1280" y="760" width="220" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="31" value="REQ" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="28" target="27">
+                <mxCell id="31" value="REQ" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="28" target="27" edge="1">
                     <mxGeometry x="-0.2" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="28" value="Client&lt;br&gt;google.com" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;strokeColor=#99FF99;" vertex="1" parent="1">
+                <mxCell id="28" value="Client&lt;br&gt;google.com" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=5;strokeColor=#99FF99;" parent="1" vertex="1">
                     <mxGeometry x="1280" y="1020" width="220" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="CORS:&lt;br&gt;*google.com/*" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;strokeColor=#FFFF33;" vertex="1" parent="1">
+                <mxCell id="29" value="CORS:&lt;br&gt;*google.com/*" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=3;strokeColor=#FFFF33;" parent="1" vertex="1">
                     <mxGeometry x="1270" y="890" width="240" height="50" as="geometry"/>
                 </mxCell>
             </root>
