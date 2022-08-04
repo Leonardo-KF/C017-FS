@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 class CharacterEntity {
   constructor(character) {
-    this.id = crypto.randomUUID();
+    this.id = character.id ?? crypto.randomUUID();
     this.name = character.name;
     this.lastName = character.lastName;
     this.skill = character.skill;
