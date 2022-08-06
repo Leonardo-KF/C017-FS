@@ -20,10 +20,13 @@ function findAnimeById(id) {
 function createAnime(anime) {
   const newAnime = new AnimeEntity(anime);
   newAnime.validate();
+
   if (!anime.characters) {
     throw new Error("Personagens precisam ser informados");
   }
+
   const newCharacters = [];
+
   anime.characters.map((character) => {
     const newCharacter = new CharacterEntity(character);
     newCharacter.validate();
@@ -42,15 +45,19 @@ function createAnime(anime) {
 function updateAnime(anime) {
   const updateAnime = new AnimeEntity(anime);
   updateAnime.validate();
+
   if (!anime.characters) {
     throw new Error("Personagens precisam ser informados");
   }
+
   const updatedCharacters = [];
+
   anime.characters.map((character) => {
     const updatedCharacter = new CharacterEntity(character);
     updatedCharacter.validate();
     updatedCharacters.push(updatedCharacter.getCharacter());
   });
+
   const updatedAnime = {
     ...updateAnime.getAnime(),
     characters: updatedCharacters,
@@ -65,38 +72,23 @@ function updateAnime(anime) {
   return updatedAnime;
 }
 
-const createdAnime = createAnime({
-  title: "test",
-  protagonist: "Leo",
-  gender: "Shounen",
-  year: 2014,
-  characters: [
-    {
-      name: "Leonardo",
-      lastName: "Fleck",
-      skill: "Sorte",
-      age: "21",
-      gender: "Male",
-    },
-  ],
-});
-console.log("Anime criado: \n", createdAnime);
+function deleteAnime(id) {
+  let animeFinded;
+  console.log("lista: ", animes);
+  animes.map((anime, index) => {
+    if (anime.id === id) {
+      animeFinded = anime;
+      animes.splice(index, 1);
+    }
+  });
 
-const updatedAnime = updateAnime({
-  id: createdAnime.id,
-  title: "Bleach",
-  protagonist: "Leo",
-  gender: "Shounen",
-  year: 2014,
-  characters: [
-    {
-      id: createdAnime.characters[0].id,
-      name: "Shaolin",
-      lastName: "Matador de porco",
-      skill: "facada",
-      age: "21",
-      gender: "Male",
-    },
-  ],
-});
-console.log("Anime atualizado: \n", updatedAnime);
+  return animeFinded;
+}
+
+module.exports = {
+  findAllAnimes,
+  findAnimeById,
+  createAnime,
+  updateAnime,
+  deleteAnime,
+};
