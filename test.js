@@ -67,3 +67,11 @@ const invalidText = new ValidateTextType(1);
 
 validText.validateText();
 invalidText.validateType();
+
+////////////////////////////////////////////////////////
+// functional programming
+
+const req = (callback) => callback("any_data");
+const getData = (callback) => req((json) => callback(json));
+
+const result = getData(console.log);
