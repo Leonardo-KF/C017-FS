@@ -1,48 +1,41 @@
 const animes = require("../mocks/animes");
+const Anime = require("../database/models/animeSchema");
 const AnimeEntity = require("../entities/anime.entity");
 const CharacterEntity = require("../entities/character.entity");
 
-function findAllAnimes() {
-  return animes;
+async function findAllAnimes() {
+  return await Anime.find();
 }
 
-function findAnimeById(id) {
-  let animeFinded;
-
-  animes.map((anime) => {
-    if (anime.id === id) {
-      animeFinded = anime;
-    }
-  });
+async function findAnimeById(id) {
+  const animeFinded = await Anime.findOne({ id: id });
   return animeFinded;
 }
 
-function createAnime(anime) {
+async function createAnime(anime) {
   const newAnime = new AnimeEntity(anime);
   newAnime.validate();
 
   if (!anime.characters) {
     throw new Error("Personagens precisam ser informados");
   }
-
   const newCharacters = [];
-
   anime.characters.map((character) => {
     const newCharacter = new CharacterEntity(character);
     newCharacter.validate();
     newCharacters.push(newCharacter.getCharacter());
   });
-
   const newAnimeValidated = {
     ...newAnime.getAnime(),
     characters: newCharacters,
   };
 
-  animes.push(newAnimeValidated);
-  return newAnimeValidated;
+  const animeCreated = await Anime.create(newAnimeValidated);
+
+  return animeCreated;
 }
 
-function updateAnime(anime) {
+async function updateAnime(anime) {
   const updateAnime = new AnimeEntity(anime);
   updateAnime.validate();
 
@@ -63,24 +56,17 @@ function updateAnime(anime) {
     characters: updatedCharacters,
   };
 
-  animes.map((eachAnime, index) => {
-    if (eachAnime.id === updateAnime.id) {
-      animes.splice(index, 1, updatedAnime);
-    }
-  });
+  const animeUpdatedInDatabase = await Anime.findOneAndUpdate(
+    { id: anime.id },
+    updatedAnime,
+    { new: true }
+  );
 
-  return updatedAnime;
+  return animeUpdatedInDatabase;
 }
 
-function deleteAnime(id) {
-  let animeFinded;
-  console.log("lista: ", animes);
-  animes.map((anime, index) => {
-    if (anime.id === id) {
-      animeFinded = anime;
-      animes.splice(index, 1);
-    }
-  });
+async function deleteAnime(id) {
+  const animeFinded = await Anime.findOneAndDelete({ id: id });
 
   return animeFinded;
 }

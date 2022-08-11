@@ -1,14 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const AnimeRoutes = require("./routes/animes.route");
-const connect = require("./database/mongoDb/mongo");
+const { mongoConnect } = require("./database/mongoDb/mongo");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-connect();
+mongoConnect();
 
 app.use("/animes", AnimeRoutes);
 

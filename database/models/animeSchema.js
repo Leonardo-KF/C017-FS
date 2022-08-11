@@ -1,5 +1,13 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const { Schema, model } = require("mongoose");
+
+const characterSchema = new Schema({
+  id: { type: String, required: true },
+  name: { type: String, required: true },
+  lastName: { type: String, required: true },
+  skill: { type: String, required: true },
+  age: { type: Number, required: true },
+  gender: { type: String, required: true },
+});
 
 const animeSchema = new Schema({
   id: { type: String, required: true },
@@ -7,10 +15,11 @@ const animeSchema = new Schema({
   protagonist: { type: String, required: true },
   gender: { type: String, required: true },
   year: { type: Number, required: true },
+  characters: { type: [characterSchema], required: true },
   createdAt: { type: Date, default: Date.now() },
 });
 
-const Anime = mongoose.model("Anime", animeSchema);
+const Anime = model("Anime", animeSchema);
 
 // const obj = {
 //     name: "Anime",

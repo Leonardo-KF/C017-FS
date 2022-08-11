@@ -1,11 +1,10 @@
-const mongoose = require("mongoose");
+const { connect } = require("mongoose");
 
-function connect() {
-  mongoose
-    .connect("mongodb://admin:admin@localhost:27020/", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
+function mongoConnect() {
+  connect("mongodb://admin:admin@localhost:27020/", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
     .then(() => {
       console.log("Database connected");
     })
@@ -14,4 +13,4 @@ function connect() {
     });
 }
 
-module.exports = connect;
+module.exports = { mongoConnect };

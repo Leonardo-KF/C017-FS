@@ -1,8 +1,8 @@
 const animesService = require("../services/animes.service");
 
-function findAllAnimes(req, res) {
+async function findAllAnimes(req, res) {
   try {
-    const allAnimes = animesService.findAllAnimes();
+    const allAnimes = await animesService.findAllAnimes();
     res.status(200).send(allAnimes);
   } catch (err) {
     console.log(err);
@@ -10,9 +10,9 @@ function findAllAnimes(req, res) {
   }
 }
 
-function findAnimeById(req, res) {
+async function findAnimeById(req, res) {
   const id = req.params.id;
-  const uniqueAnime = animesService.findAnimeById(id);
+  const uniqueAnime = await animesService.findAnimeById(id);
   if (uniqueAnime) {
     res.status(200).send(uniqueAnime);
   } else {
@@ -20,10 +20,10 @@ function findAnimeById(req, res) {
   }
 }
 
-function createAnime(req, res) {
+async function createAnime(req, res) {
   try {
     const anime = req.body;
-    const animeCreated = animesService.createAnime(anime);
+    const animeCreated = await animesService.createAnime(anime);
     res.status(201).send(animeCreated);
   } catch (err) {
     console.log(err.message);
@@ -31,19 +31,19 @@ function createAnime(req, res) {
   }
 }
 
-function updateAnime(req, res) {
+async function updateAnime(req, res) {
   try {
     const anime = req.body;
-    const animeUpdated = animesService.updateAnime(anime);
+    const animeUpdated = await animesService.updateAnime(anime);
     res.status(200).send(animeUpdated);
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
 }
 
-function deleteAnime(req, res) {
+async function deleteAnime(req, res) {
   const id = req.params.id;
-  const deletedAnime = animesService.deleteAnime(id);
+  const deletedAnime = await animesService.deleteAnime(id);
   if (deletedAnime) {
     res.status(200).send(deletedAnime);
   } else {
