@@ -1,4 +1,4 @@
-const animes = require("../mocks/animes");
+const animes = require("../../mocks/animes");
 const Anime = require("../database/models/animeSchema");
 const AnimeEntity = require("../entities/anime.entity");
 const CharacterEntity = require("../entities/character.entity");
@@ -19,12 +19,15 @@ async function createAnime(anime) {
   if (!anime.characters) {
     throw new Error("Personagens precisam ser informados");
   }
+
   const newCharacters = [];
+
   anime.characters.map((character) => {
     const newCharacter = new CharacterEntity(character);
     newCharacter.validate();
     newCharacters.push(newCharacter.getCharacter());
   });
+
   const newAnimeValidated = {
     ...newAnime.getAnime(),
     characters: newCharacters,
