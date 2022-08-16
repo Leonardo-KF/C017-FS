@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js"
+    "dev": "nodemon ./src/index.js",
+    "doc": "node ./src/docs/autodoc.js"
   },
   "author": "Leo",
   "license": "MIT",
@@ -14,9 +15,12 @@
     "express": "^4.18.1",
     "mongoose": "^6.5.1",
     "node-fetch": "^3.2.10",
+    "swagger-ui-express": "^4.5.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.19",
+    "swagger-autogen": "^2.21.5"
   }
 }
