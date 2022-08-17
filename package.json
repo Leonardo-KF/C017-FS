@@ -4,24 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js",
-    "start": "node ./src/index.js",
-    "doc": "node ./src/docs/autodoc.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Leo",
-  "license": "MIT",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "mongoose": "^6.5.1",
-    "node-fetch": "^3.2.10",
-    "swagger-ui-express": "^4.5.0",
-    "validator": "^13.7.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leonardo-KF/C017-FS.git"
   },
-  "devDependencies": {
-    "dotenv": "^16.0.1",
-    "nodemon": "^2.0.19",
-    "swagger-autogen": "^2.21.5"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leonardo-KF/C017-FS/issues"
+  },
+  "homepage": "https://github.com/Leonardo-KF/C017-FS#readme"
 }
