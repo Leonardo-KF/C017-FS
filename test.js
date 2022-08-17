@@ -138,3 +138,4 @@ validate();
 console.log(nome);
 
 // 0.5 pro Renato tenório questão aula promise
+let animal;

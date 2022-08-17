@@ -11,7 +11,7 @@
       "description": "DEV"
     },
     {
-      "url": "",
+      "url": "https://animes-api-c017.herokuapp.com/animes",
       "description": "PROD"
     }
   ],
