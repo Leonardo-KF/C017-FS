@@ -6,7 +6,7 @@ export class UpdateUserUseCase {
   }
   async execute(userUpdated, userId) {
     // encontra e retorna o user por id, se não encontrar retorna undefined
-    const userToUpdate = await this.findUserById(userId);
+    const userToUpdate = await this.findUserById.execute(userId);
     // se userToUpdate for undefined dispara um erro pois não encontrou o user
     if (!userToUpdate) {
       throw new Error("Not found a user with Userid:" + userId);
