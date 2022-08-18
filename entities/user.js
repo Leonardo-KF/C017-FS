@@ -11,6 +11,12 @@ export class UserEntity {
     this.characters = user.characters ?? [];
   }
 
+  validate() {
+    if (!this.email || !this.password || !this.name || !this.image) {
+      throw new Error("Invalid user");
+    }
+  }
+
   addCharacter(character) {
     const newCharacter = new CharacterEntity(character, this.id);
     this.characters.push(newCharacter.getCharacter());
