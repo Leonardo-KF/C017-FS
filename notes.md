@@ -18,3 +18,5 @@ YAGN - You are not gonna need it;
 Small commits;
 KISS - Keep it simple and stupid;
 DI - Dependency injection;
+SRP - Single Responsability Principle;
+DRY - Dont Repeat Yourself;

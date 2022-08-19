@@ -7,10 +7,6 @@ export class UpdateUserUseCase {
   async execute(userUpdated, userId) {
     // encontra e retorna o user por id, se não encontrar retorna undefined
     const userToUpdate = await this.findUserById.execute(userId);
-    // se userToUpdate for undefined dispara um erro pois não encontrou o user
-    if (!userToUpdate) {
-      throw new Error("Not found a user with Userid:" + userId);
-    }
     // pega os valores antigos do usuário encontrado e substitui pelos valores novos que recebemos como parâmetro
     const userModified = { ...userToUpdate, userUpdated };
     // usa a entidade para pegar as informações do usuário para poder valida-lo

@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/Leonardo-KF/C017-FS/issues"
   },
-  "homepage": "https://github.com/Leonardo-KF/C017-FS#readme"
+  "homepage": "https://github.com/Leonardo-KF/C017-FS#readme",
+  "dependencies": {
+    "mongoose": "^6.5.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
+  }
 }
