@@ -1,5 +1,6 @@
 import { config } from "dotenv";
-import { connect } from "mongoose";
+import mongo from "mongoose";
+const { connect } = mongo;
 if (process.env.NODE_ENV !== "production") {
   config();
 }
