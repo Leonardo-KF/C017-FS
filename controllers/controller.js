@@ -1,4 +1,4 @@
-import { badRequest } from "./errors/badRequest";
+import { badRequest } from "./errors/badRequest.js";
 export class Controller {
   constructor(service) {
     this.service = service;
