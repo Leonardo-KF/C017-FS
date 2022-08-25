@@ -10,14 +10,14 @@ await ConnectDb.ConnectDb();
 
 const app = express();
 const router = Router();
-app.use(express.json());
-app.use(cors());
 
 const user = makeUserFactory(router);
 const character = makeCharacterFactory(router);
 
-app.use("/users", user.route());
+app.use(express.json());
+app.use(cors());
 app.use("/characters", character.route());
+app.use("/users", user.route());
 
 app.listen(3000, () => {
   console.log("Servidor rodando em: http://localhost:3000");

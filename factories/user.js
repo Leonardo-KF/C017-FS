@@ -4,7 +4,7 @@ import { UpdateUserUseCase } from "../services/usecases/user/updateUser.js";
 import { DeleteUserUseCase } from "../services/usecases/user/deleteUser.js";
 import { FindAllUsersUseCase } from "../services/usecases/user/findAllUsers.js";
 import { FindUserByIdUseCase } from "../services/usecases/user/findUserById.js";
-import { Services } from "./services/service.js";
+import { Services } from "../services/service.js";
 import { UserRoutes } from "../routes/userRoutes.js";
 import { Controller } from "../controllers/controller.js";
 
