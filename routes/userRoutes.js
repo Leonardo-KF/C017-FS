@@ -1,7 +1,7 @@
 export class UserRoutes {
   constructor(controller, router) {
     this.userController = controller;
-    this.route = router;
+    this.router = router;
   }
 
   route() {

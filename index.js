@@ -1,45 +1,24 @@
-import { CharacterRepositoryMongoDb } from "./database/repositories/characterRepository.js";
-import { UserRepositoryMongoDb } from "./database/repositories/userRepository.js";
+import express, { Router } from "express";
+import cors from "cors";
+
 import { MongoDbConnection } from "./database/mongo/connection/connect.js";
-import { CreateUserUseCase } from "./services/usecases/user/createUser.js";
-import { UpdateUserUseCase } from "./services/usecases/user/updateUser.js";
-import { DeleteUserUseCase } from "./services/usecases/user/deleteUser.js";
-import { FindAllUsersUseCase } from "./services/usecases/user/findAllUsers.js";
-import { FindUserByIdUseCase } from "./services/usecases/user/findUserById.js";
-import { Services } from "./services/service.js";
-import { Controller } from "./controllers/controller.js";
+import { makeUserFactory } from "./factories/user.js";
+import { makeCharacterFactory } from "./factories/character.js";
 
 const ConnectDb = new MongoDbConnection();
 await ConnectDb.ConnectDb();
 
-const userRepository = new UserRepositoryMongoDb();
-const characterRepository = new CharacterRepositoryMongoDb();
+const app = express();
+const router = Router();
+app.use(express.json());
+app.use(cors());
 
-const createUserUseCase = new CreateUserUseCase(userRepository);
-const findUserByIdUseCase = new FindUserByIdUseCase(userRepository);
-const updateUserUseCase = new UpdateUserUseCase(
-  userRepository,
-  findUserByIdUseCase
-);
-const findAllUsersUseCase = new FindAllUsersUseCase(userRepository);
-const deleteUserUseCase = new DeleteUserUseCase(userRepository);
+const user = makeUserFactory(router);
+const character = makeCharacterFactory(router);
 
-const userService = new Services(
-  createUserUseCase,
-  updateUserUseCase,
-  findAllUsersUseCase,
-  findUserByIdUseCase,
-  deleteUserUseCase
-);
-const userController = new Controller(userService);
+app.use("/users", user.route());
+app.use("/characters", character.route());
 
-const response = await userController.create({
-  body: {
-    name: "Leonardo",
-    email: "leonardo@gmail.com",
-    password: "Umasenhasegura",
-    image: "http://fotolinda.com.br",
-  },
+app.listen(3000, () => {
+  console.log("Servidor rodando em: http://localhost:3000");
 });
-
-console.log(response);
