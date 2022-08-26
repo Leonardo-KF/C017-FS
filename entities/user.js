@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { CharacterEntity } from "./character.js";
+import { BcryptHelper } from "../auth/bcrypt.js";
 
 export class UserEntity {
   constructor(user) {
@@ -17,17 +17,15 @@ export class UserEntity {
     }
   }
 
-  addCharacter(character) {
-    const newCharacter = new CharacterEntity(character, this.id);
-    this.characters.push(newCharacter.getCharacter());
-  }
-
   getUser() {
+    const bcrypt = new BcryptHelper();
+    const hashedPassword = bcrypt.hashGenerator(this.password);
+
     const user = {
       id: this.id,
       name: this.name,
       email: this.email,
-      password: this.password,
+      password: hashedPassword,
       image: this.image,
       characters: this.characters,
     };
