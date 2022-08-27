@@ -15,4 +15,7 @@ export class UserRepositoryMongoDb {
   async findAll() {
     return await userDb.find();
   }
+  async findUserByEmail(email) {
+    return await userDb.findOne({ email: email });
+  }
 }
