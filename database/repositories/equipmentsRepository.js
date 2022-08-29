@@ -1,10 +1,6 @@
+import { equipmentDb } from "../mongo/schemas/equipment.js";
 export class EquipmentsRepository {
-  constructor() {
-    this.equipments = [];
-  }
-
-  async create(equipments) {
-    await this.equipments.push(equipments);
-    return equipments;
+  async create(equipment) {
+    return await equipmentDb.create(equipment);
   }
 }

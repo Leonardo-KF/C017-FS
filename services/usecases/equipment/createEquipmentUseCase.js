@@ -1,8 +1,8 @@
 import { Equipments } from "../../../entities/equipments.js";
 
 export class CreateEquipmentUseCase {
-  constructor(repository) {
-    this.repository = repository;
+  constructor(equipmentsRepository) {
+    this.repository = equipmentsRepository;
   }
 
   async execute(set) {
