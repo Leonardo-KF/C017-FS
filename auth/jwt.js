@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import { config } from "dotenv";
-if (process.env.NODE_ENV !== "production") {
-  config();
-}
+// import { config } from "dotenv";
+// if (process.env.NODE_ENV !== "production") {
+//   config();
+// }
 
 export class JwtHelper {
   generateToken(data) {

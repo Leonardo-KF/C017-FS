@@ -7,7 +7,6 @@ export class BcryptHelper {
         console.log(err);
         throw new Error("Error in hash");
       }
-
       return hash;
     });
 
