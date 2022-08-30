@@ -1,3 +1,4 @@
+import { authentication } from "../midlewares/auth.js";
 export class UserRoutes {
   constructor(controller, router) {
     this.userController = controller;
@@ -5,7 +6,9 @@ export class UserRoutes {
   }
 
   route() {
-    this.router.get("/", (req, res) => this.userController.find(req, res));
+    this.router.get("/", authentication, (req, res) =>
+      this.userController.find(req, res)
+    );
     this.router.post("/create", (req, res) =>
       this.userController.create(req, res)
     );
