@@ -19,7 +19,6 @@ export function makeUserFactory(router) {
   );
   const findAllUsersUseCase = new FindAllUsersUseCase(userRepository);
   const deleteUserUseCase = new DeleteUserUseCase(userRepository);
-
   const userService = new Services(
     createUserUseCase,
     updateUserUseCase,

@@ -11,8 +11,11 @@ import { Services } from "../services/service.js";
 import { CharacterController } from "../controllers/characterController.js";
 import { CharacterRoutes } from "../routes/characterRoutes.js";
 
+import { CharacterRepositorySqlite } from "../database/repositories/CharacterRepositorySqlite.js";
+
 export function makeCharacterFactory(router) {
   const characterRepository = new CharacterRepositoryMongoDb();
+
   const userRepository = new UserRepositoryMongoDb();
 
   const findUserByIdUseCase = new FindUserByIdUseCase(userRepository);

@@ -6,6 +6,10 @@ import { makeUserFactory } from "./factories/user.js";
 import { makeCharacterFactory } from "./factories/character.js";
 import { makeAuthFactory } from "./factories/auth.js";
 import { makeEquipmentsFactory } from "./factories/equipment.js";
+import { ConnectSqlite } from "./database/sqlite/connect.js";
+
+const sqliteConnect = new ConnectSqlite();
+sqliteConnect.connect().sync({ force: true });
 
 const ConnectDb = new MongoDbConnection();
 await ConnectDb.ConnectDb();
